@@ -138,3 +138,107 @@ Run file:	D:\пономарёв александр\clash-main\bin\Debug\clash.exe
 Directory:	D:\пономарёв александр\clash-main
 
 --------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: D:\пономарёв александр\clashofclans-main\bin\Debug\clash.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0042C6AB в функции main() в файле D:/пономарёв александр/clashofclans-main/main.cpp на строке 150. Попытка прочесть данные по адресу 0x1EB95D88 в модуле D:\пономарёв александр\clashofclans-main\bin\Debug\clash.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005072FC (32-bit), Flags: CMdRe0, Thread: 0xDAC (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0042C6AB in D:\пономарёв александр\clashofclans-main\bin\Debug\clash.exe: main() at D:/пономарёв александр/clashofclans-main/main.cpp (150):
+
+    148:         for(int i=0; 1<count_pic; i++)
+    149:         {
+=>  150:             if(txMouseButtons() == 1 &&
+    151:             txMouseX() >= centrPic[i].x &&
+    152:             txMouseX() <= centrPic[i].x + centrPic[i].w_scr &&
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in int main() at D:\пономарёв александр\clashofclans-main\main.cpp (151):
+
+    149:         {
+    150:             if(txMouseButtons() == 1 &&
+=>  151:             txMouseX() >= centrPic[i].x &&
+    152:             txMouseX() <= centrPic[i].x + centrPic[i].w_scr &&
+    153:             txMouseY() >= centrPic[i].y &&
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	d:\codeblocks\mingw\include\txlib.h
+Compiled:	Oct  9 2023 19:10:16, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 09 2023 19:10:37
+
+Run file:	D:\пономарёв александр\clashofclans-main\bin\Debug\clash.exe
+Directory:	D:\пономарёв александр\clashofclans-main
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: D:\пономарёв александр\clashofclans-main\bin\Debug\clash.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0042C6AB в функции main() в файле D:/пономарёв александр/clashofclans-main/main.cpp на строке 150. Попытка прочесть данные по адресу 0x1EB95D88 в модуле D:\пономарёв александр\clashofclans-main\bin\Debug\clash.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005072FC (32-bit), Flags: CMdRe0, Thread: 0xDAC (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0042C6AB in D:\пономарёв александр\clashofclans-main\bin\Debug\clash.exe: main() at D:/пономарёв александр/clashofclans-main/main.cpp (150):
+
+    148:         for(int i=0; 1<count_pic; i++)
+    149:         {
+=>  150:             if(txMouseButtons() == 1 &&
+    151:             txMouseX() >= centrPic[i].x &&
+    152:             txMouseX() <= centrPic[i].x + centrPic[i].w_scr &&
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in int main() at D:\пономарёв александр\clashofclans-main\main.cpp (151):
+
+    149:         {
+    150:             if(txMouseButtons() == 1 &&
+=>  151:             txMouseX() >= centrPic[i].x &&
+    152:             txMouseX() <= centrPic[i].x + centrPic[i].w_scr &&
+    153:             txMouseY() >= centrPic[i].y &&
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	d:\codeblocks\mingw\include\txlib.h
+Compiled:	Oct  9 2023 19:10:16, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 09 2023 19:10:37
+
+Run file:	D:\пономарёв александр\clashofclans-main\bin\Debug\clash.exe
+Directory:	D:\пономарёв александр\clashofclans-main
+
+--------------------------------------------------

@@ -3,7 +3,6 @@ struct Button
 {
     int x;
     const char* name;
-
     string category;
 
     void Draw()
@@ -71,31 +70,34 @@ int main()
     menuPic[1] = {20, 300, txLoadImage ("pictures/defense/gun.bmp"), 120, 120, 300, 300, false, "обычные здания"};
 
     Picture centrPic[count_pic];
-    centrPic[0] = {300, 300, menuPic[0].pic, 150, 150, 300, 300, false, "обычные здания"};
-    centrPic[1] = {300, 500, menuPic[1].pic, 150, 150, 300, 300, false, "обычные здания"};
+    centrPic[0] = {300, 300, menuPic[0].pic, 150, 150, menuPic[0].w, menuPic[0].h, false, "обычные здания"};
+    centrPic[1] = {300, 500, menuPic[1].pic, 150, 150, menuPic[1].w, menuPic[1].h, false, "обычные здания"};
+
+    int vybor = -1;
+    bool mouse_click = false;
 
 
-    /*int pic1_menu_x=20;
-    int pic1_menu_y=100;
-    int pic1_menu_w=120;
-    int pic1_menu_h=120;
-    int pic1_central_x=300;
-    int pic1_central_y=300;
-    int pic1_central_w=150;
-    int pic1_central_h=150;
-    bool pic1_menu_visible = false;
-    bool pic1_central_visible = false;
+/*int pic1_menu_x=20;
+pic1_menu_y=100;
+pic1_menu_w=120;
+pic1_menu_h=120;
+pic1_central_x=300;
+pic1_central_y=300;
+pic1_central_w=150;
+pic1_central_h=150;
+pic1_menu_visible = false;
+pic1_central_visible = false;
 
-    bool pic2_menu_visible = false;
-    bool pic2_central_visible = false;
-    int pic2_menu_x=20;
-    int pic2_menu_y=300;
-    int pic2_menu_w=120;
-    int pic2_menu_h=120;
-    int pic2_central_x=300;
-    int pic2_central_y=500;
-    int pic2_central_w=150;
-    int pic2_central_h=150;*/
+pic2_menu_visible = false;
+pic2_central_visible = false;
+pic2_menu_x=20;
+pic2_menu_y=300;
+pic2_menu_w=120;
+pic2_menu_h=120;
+pic2_central_x=300;
+pic2_central_y=500;
+pic2_central_w=150;
+pic2_central_h=150;*/
 
     while(!GetAsyncKeyState (VK_ESCAPE))
     {
@@ -104,90 +106,87 @@ int main()
         txSetFillColor(TX_GREEN);
         txClear();
 
-        for (int i=0; i<count_btn; i++)
+        for(int i=0; i<count_btn; i++)
         {
             btn[i].Draw();
         }
 
-        for (int i=0;i<count_pic; i++)
+        for(int i=0; i<count_pic; i++)
         {
             menuPic[i].draw();
         }
 
-        for (int i=0;i<count_pic; i++)
+        for(int i=0; i<count_pic; i++)
         {
             centrPic[i].draw();
         }
-
-        for (int ib=0;ib<count_btn; ib++)
+        for(int ib=0; ib<count_btn; ib++)
         {
             if(btn[ib].Click())
             {
-                for (int ip=0;ip<count_pic; ip++)
-            {
-                menuPic[ip].visible= false;
-                if(menuPic[ip].category == btn[ib].category)
+                for(int ip=0; ip<count_pic; ip++)
+                {
+                    menuPic[ip].visible = false;
+                    if(menuPic[ip].category == btn[ib].category)
                     {
-                        menuPic[ip].visible= true;
+                        menuPic[ip].visible = true;
                     }
                 }
             }
         }
 
-    if(menuPic[0].Click()&& menuPic[0].visible)
-    {
-        centrPic[0].visible =true;
-    }
-
-    if(menuPic[1].Click()&& menuPic[1].visible)
-    {
-        centrPic[1].visible =true;
-    }
-
-    if(menuPic[2].Click()&& menuPic[2].visible)
-    {
-        centrPic[2].visible =true;
-    }
-
-        /*if(btn[0].Click())
+        for(int i=0; i<count_pic; i++)
         {
-            menuPic[0].visible = true;
-            menuPic[1].visible = true;
+            if(txMouseButtons() == 1 &&
+            txMouseX() >= centrPic[i].x &&
+            txMouseX() <= centrPic[i].x + centrPic[i].w_scr &&
+            txMouseY() >= centrPic[i].y &&
+            txMouseY() <= centrPic[i].y + centrPic[i].h_scr &&
+            centrPic[i].visible);
+            {
+                vybor = i;
+                mouse_click = true;
+            }
         }
 
-        if(menuPic[0].visible)
-        {
-            Draw(menuPic[0].x, menuPic[0].y, menuPic[0].w, menuPic[0].h, menuPic[0]);
-        }
+        char str[10];
+        sprintf(str, "индекс чёто там  = %d", vybor);
+        txTextOut(50, 650, str);
 
-        if(pic2_menu_visible)
+        if(vybor>=0)
         {
-            DrawPicture(pic2_menu_x, pic2_menu_y, pic2_menu_w, pic2_menu_h, pic2);
-        }
+            if (GetAsyncKeyState (VK_LEFT))
+            {
+                centrPic[vybor].x -= 5;
+            }
 
-        if(clickPictures(100))
-        {
-            pic1_central_visible = true;
-        }
+            if (GetAsyncKeyState (VK_RIGHT))
+            {
+                centrPic[vybor].x += 5;
+            }
 
-        if(pic1_central_visible)
-        {
-            DrawPicture(pic1_central_x, pic1_central_y, pic1_central_w, pic1_central_h, pic1);
-        }
+            if (GetAsyncKeyState (VK_UP))
+            {
+                centrPic[vybor].y -= 5;
+            }
 
-        if(clickPictures(250))
-        {
-            pic2_central_visible = true;
+            if (GetAsyncKeyState (VK_DOWN))
+            {
+                centrPic[vybor].y += 5;
+            }
+            
+            if (GetAsyncKeyState (VK_DEM_PLUS) || (VK_ADD))
+            {
+                centrPic[vybor].w_scr = centrPic[vybor].w_scr * 1
+            }
+            
         }
-
-        if(pic2_central_visible)
-        {
-            DrawPicture(pic2_central_x, pic2_central_y, pic2_central_w, pic2_central_h, pic2);
-        }*/
+        
+        
 
         txSleep(50);
         txEnd();
-    }
+        }
 
     for (int i=0; i<count_pic; i++)
     {
