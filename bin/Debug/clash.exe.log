@@ -1,0 +1,140 @@
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: D:\пономарёв александр\clash-main\bin\Debug\clash.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x75B595F8 в функции strchr(). Попытка прочесть данные по адресу 0x00000096 в модуле C:\Windows\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005042FC (32-bit), Flags: CMdRe0, Thread: 0x23F8 (Main), GetLastError(): 6 (Неверный дескриптор). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x75B595F8 in C:\Windows\System32\msvcrt.dll: strchr()
+
+# 1 0x0044B278 in D:\пономарёв александр\clash-main\bin\Debug\clash.exe: DrawButton() at d:/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 2 0x0042C1E1 in D:\пономарёв александр\clash-main\bin\Debug\clash.exe: main() at D:/пономарёв александр/clash-main/main.cpp (80):
+
+     78:         for (int i=0; i<4; i++)
+     79:         {
+=>   80:             btn[i].DrawButton();
+     81:         }
+     82: 
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txDrawText(double, double, double, double, const char*, unsigned int, HDC) at d:\codeblocks\mingw\include\txlib.h (13403):
+
+  13401: $   RECT r = { ROUND (x0), ROUND (y0), ROUND (x1), ROUND (y1) };
+  13402: 
+=>13403: $   if (!strchr (text, '\n')) format |= DT_SINGLELINE;
+  13404: 
+  13405: $   unsigned prev = txSetTextAlign (TA_LEFT | TA_TOP | TA_NOUPDATECP, dc);
+
+# 1 in void Button::DrawButton() at D:\пономарёв александр\clash-main\main.cpp (17):
+
+     15:         txSetColor(TX_BLACK);
+     16:         txSelectFont("Arial", 24);
+=>   17:         txDrawText(x, 30, x+150, 70, name);
+     18:     }
+     19: };
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	d:\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 25 2023 19:27:37, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 25 2023 19:27:56
+
+Run file:	D:\пономарёв александр\clash-main\bin\Debug\clash.exe
+Directory:	D:\пономарёв александр\clash-main
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: D:\пономарёв александр\clash-main\bin\Debug\clash.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x75B595F8 в функции strchr(). Попытка прочесть данные по адресу 0x00000096 в модуле C:\Windows\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005042FC (32-bit), Flags: CMdRe0, Thread: 0x23F8 (Main), GetLastError(): 6 (Неверный дескриптор). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x75B595F8 in C:\Windows\System32\msvcrt.dll: strchr()
+
+# 1 0x0044B278 in D:\пономарёв александр\clash-main\bin\Debug\clash.exe: DrawButton() at d:/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 2 0x0042C1E1 in D:\пономарёв александр\clash-main\bin\Debug\clash.exe: main() at D:/пономарёв александр/clash-main/main.cpp (80):
+
+     78:         for (int i=0; i<4; i++)
+     79:         {
+=>   80:             btn[i].DrawButton();
+     81:         }
+     82: 
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txDrawText(double, double, double, double, const char*, unsigned int, HDC) at d:\codeblocks\mingw\include\txlib.h (13403):
+
+  13401: $   RECT r = { ROUND (x0), ROUND (y0), ROUND (x1), ROUND (y1) };
+  13402: 
+=>13403: $   if (!strchr (text, '\n')) format |= DT_SINGLELINE;
+  13404: 
+  13405: $   unsigned prev = txSetTextAlign (TA_LEFT | TA_TOP | TA_NOUPDATECP, dc);
+
+# 1 in void Button::DrawButton() at D:\пономарёв александр\clash-main\main.cpp (17):
+
+     15:         txSetColor(TX_BLACK);
+     16:         txSelectFont("Arial", 24);
+=>   17:         txDrawText(x, 30, x+150, 70, name);
+     18:     }
+     19: };
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	d:\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 25 2023 19:27:37, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 25 2023 19:27:56
+
+Run file:	D:\пономарёв александр\clash-main\bin\Debug\clash.exe
+Directory:	D:\пономарёв александр\clash-main
+
+--------------------------------------------------
