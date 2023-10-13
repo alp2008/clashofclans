@@ -38,7 +38,7 @@ struct Picture
     bool visible;
     string category;
 
-    void draw()
+    void Draw()
 {
     if(visible)
     {
@@ -113,13 +113,14 @@ pic2_central_h=150;*/
 
         for(int i=0; i<count_pic; i++)
         {
-            menuPic[i].draw();
+            menuPic[i].Draw();
         }
 
         for(int i=0; i<count_pic; i++)
         {
-            centrPic[i].draw();
+            centrPic[i].Draw();
         }
+
         for(int ib=0; ib<count_btn; ib++)
         {
             if(btn[ib].Click())
@@ -149,9 +150,11 @@ pic2_central_h=150;*/
             }
         }
 
+/*
         char str[10];
         sprintf(str, "индекс чёто там  = %d", vybor);
         txTextOut(50, 650, str);
+        */
 
         if(vybor>=0)
         {
@@ -174,15 +177,34 @@ pic2_central_h=150;*/
             {
                 centrPic[vybor].y += 5;
             }
-            
-            if (GetAsyncKeyState (VK_DEM_PLUS) || (VK_ADD))
+
+            if (GetAsyncKeyState (VK_OEM_PLUS) || (VK_ADD))
             {
-                centrPic[vybor].w_scr = centrPic[vybor].w_scr * 1
+                centrPic[vybor].w_scr = centrPic[vybor].w_scr * 1.1;
+                centrPic[vybor].h_scr = centrPic[vybor].h_scr * 1.1;
             }
-            
+
+            if (GetAsyncKeyState (VK_OEM_MINUS) || (VK_SUBTRACT))
+            {
+                centrPic[vybor].w_scr = centrPic[vybor].w_scr * 0.9;
+                centrPic[vybor].h_scr = centrPic[vybor].h_scr * 0.9;
+            }
         }
-        
-        
+
+        if(vybor>=0)
+        {
+            if(txMouseButtons == 1 && !mouse_click)
+            {
+            centrPic[vybor].x = txMouseX() - centrpic[vybor].w_scr/2;
+            centrPic[vybor].y = txMouseY() - centrpic[vybor].h_scr/2;
+            }
+            else
+        {
+            if(txMouseButtons() !=1)
+            {
+            mouse_click = true;
+            }
+        }
 
         txSleep(50);
         txEnd();

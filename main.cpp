@@ -38,7 +38,7 @@ struct Picture
     bool visible;
     string category;
 
-    void draw()
+    void Draw()
 {
     if(visible)
     {
@@ -66,8 +66,8 @@ int main()
     btn[1] = {250, "защитные здания", "защитные здания"};
 
     Picture menuPic[count_pic];
-    menuPic[0] = {20, 100, txLoadImage ("pictures/build/ratusha.bmp"), 120, 120, 300, 300, false, "обычные здания"};
-    menuPic[1] = {20, 300, txLoadImage ("pictures/defense/gun.bmp"), 120, 120, 300, 300, false, "обычные здания"};
+    menuPic[0] = {20, 100, txLoadImage ("pictures/build/ratusha.bmp"), 120, 120, 225, 225, false, "обычные здания"};
+    menuPic[1] = {20, 300, txLoadImage ("pictures/defense/gun.bmp"), 120, 120, 225, 225, false, "обычные здания"};
 
     Picture centrPic[count_pic];
     centrPic[0] = {300, 300, menuPic[0].pic, 150, 150, menuPic[0].w, menuPic[0].h, false, "обычные здания"};
@@ -113,13 +113,14 @@ pic2_central_h=150;*/
 
         for(int i=0; i<count_pic; i++)
         {
-            menuPic[i].draw();
+            menuPic[i].Draw();
         }
 
         for(int i=0; i<count_pic; i++)
         {
-            centrPic[i].draw();
+            centrPic[i].Draw();
         }
+
         for(int ib=0; ib<count_btn; ib++)
         {
             if(btn[ib].Click())
@@ -137,21 +138,32 @@ pic2_central_h=150;*/
 
         for(int i=0; i<count_pic; i++)
         {
+            if(menuPic[i].Click() && menuPic[i].visible)
+            {
+                centrPic[i].visible  = true;
+            }
+        }
+
+
+        for(int i=0; i<count_pic; i++)
+        {
             if(txMouseButtons() == 1 &&
             txMouseX() >= centrPic[i].x &&
             txMouseX() <= centrPic[i].x + centrPic[i].w_scr &&
             txMouseY() >= centrPic[i].y &&
             txMouseY() <= centrPic[i].y + centrPic[i].h_scr &&
-            centrPic[i].visible);
+            centrPic[i].visible)
             {
                 vybor = i;
-                mouse_click = true;
+                mouse_click = false;
             }
         }
+
 
         char str[10];
         sprintf(str, "индекс чёто там  = %d", vybor);
         txTextOut(50, 650, str);
+
 
         if(vybor>=0)
         {
@@ -175,20 +187,34 @@ pic2_central_h=150;*/
                 centrPic[vybor].y += 5;
             }
 
-            if (GetAsyncKeyState (VK_OEM_PLUS) || (VK_ADD))
+            if (GetAsyncKeyState (VK_OEM_PLUS) || GetAsyncKeyState(VK_ADD))
             {
                 centrPic[vybor].w_scr = centrPic[vybor].w_scr * 1.1;
                 centrPic[vybor].h_scr = centrPic[vybor].h_scr * 1.1;
             }
 
-            if (GetAsyncKeyState (VK_OEM_MINUS) || (VK_SUBTRACT))
+            if (GetAsyncKeyState (VK_OEM_MINUS) || GetAsyncKeyState(VK_SUBTRACT))
             {
                 centrPic[vybor].w_scr = centrPic[vybor].w_scr * 0.9;
                 centrPic[vybor].h_scr = centrPic[vybor].h_scr * 0.9;
             }
         }
 
-
+        if(vybor>=0)
+        {
+            if(txMouseButtons() == 1 && !mouse_click)
+            {
+                centrPic[vybor].x = txMouseX() - centrPic[vybor].w_scr/2;
+                centrPic[vybor].y = txMouseY() - centrPic[vybor].h_scr/2;
+            }
+            else
+            {
+                if(txMouseButtons() !=1)
+                {
+                    mouse_click = true;
+                }
+            }
+        }
 
         txSleep(50);
         txEnd();
