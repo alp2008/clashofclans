@@ -1,59 +1,6 @@
 #include "TXLib.h"
-struct Button
-{
-    int x;
-    const char* name;
-    string category;
-
-    void Draw()
-    {
-        txSetColor(TX_TRANSPARENT);
-        txSetFillColor(TX_GREY);
-        Win32::RoundRect (txDC(), x+5, 35, x+155, 75, 30, 30);
-        txSetColor(TX_BLACK, 3);
-        txSetFillColor(TX_WHITE);
-        Win32::RoundRect (txDC(), x, 30, x+150, 70, 30, 30);
-        txSetColor(TX_BLACK);
-        txSelectFont("Arial", 24);
-        txDrawText(x, 30, x+150, 70, name);
-    }
-
-    bool Click()
-    {
-        return(txMouseButtons() == 1 &&
-        txMouseX()>= x && txMouseX()<=x+150 &&
-        txMouseY()>= 35 && txMouseY()<=75);
-    }
-};
-
-struct Picture
-{
-    int x;
-    int y;
-    HDC pic;
-    int w_scr;
-    int h_scr;
-    int w;
-    int h;
-    bool visible;
-    string category;
-
-    void Draw()
-{
-    if(visible)
-    {
-        Win32::TransparentBlt (txDC(),x ,y ,w_scr,h_scr,pic,0,0,w,h,TX_white);
-    }
-}
-
-    bool Click()
-{
-    return( txMouseButtons() == 1 &&
-            txMouseX() >= 20 && txMouseX() <= 100 &&
-            txMouseY() >= y && txMouseY() <= y+200);
-}
-
-};
+#include "button.cpp"
+#include "picture.cpp"
 
 int main()
 {
@@ -69,35 +16,12 @@ int main()
     menuPic[0] = {20, 100, txLoadImage ("pictures/build/ratusha.bmp"), 120, 120, 225, 225, false, "обычные здания"};
     menuPic[1] = {20, 300, txLoadImage ("pictures/defense/gun.bmp"), 120, 120, 225, 225, false, "обычные здания"};
 
-    Picture centrPic[count_pic];
-    centrPic[0] = {300, 300, menuPic[0].pic, 150, 150, menuPic[0].w, menuPic[0].h, false, "обычные здания"};
-    centrPic[1] = {300, 500, menuPic[1].pic, 150, 150, menuPic[1].w, menuPic[1].h, false, "обычные здания"};
+    Picture centrPic[100];
 
     int vybor = -1;
     bool mouse_click = false;
-
-
-/*int pic1_menu_x=20;
-pic1_menu_y=100;
-pic1_menu_w=120;
-pic1_menu_h=120;
-pic1_central_x=300;
-pic1_central_y=300;
-pic1_central_w=150;
-pic1_central_h=150;
-pic1_menu_visible = false;
-pic1_central_visible = false;
-
-pic2_menu_visible = false;
-pic2_central_visible = false;
-pic2_menu_x=20;
-pic2_menu_y=300;
-pic2_menu_w=120;
-pic2_menu_h=120;
-pic2_central_x=300;
-pic2_central_y=500;
-pic2_central_w=150;
-pic2_central_h=150;*/
+    int nCentrPic = 0;
+    int npic = 0;
 
     while(!GetAsyncKeyState (VK_ESCAPE))
     {
@@ -140,19 +64,28 @@ pic2_central_h=150;*/
         {
             if(menuPic[i].Click() && menuPic[i].visible)
             {
-                centrPic[i].visible  = true;
+                while(txMouseButtons() == 1)
+                {
+                    txSleep(10);
+                }
+                centrPic[nCentrPic]  = {500,
+                                        100,
+                                        menuPic[npic].pic,
+                                        menuPic[npic].w,
+                                        menuPic[npic].h,
+                                        menuPic[npic].w,
+                                        menuPic[npic].h,
+                                        menuPic[npic].visible,
+                                        menuPic[npic].category};
+
+                nCentrPic ++;
             }
         }
 
 
         for(int i=0; i<count_pic; i++)
         {
-            if(txMouseButtons() == 1 &&
-            txMouseX() >= centrPic[i].x &&
-            txMouseX() <= centrPic[i].x + centrPic[i].w_scr &&
-            txMouseY() >= centrPic[i].y &&
-            txMouseY() <= centrPic[i].y + centrPic[i].h_scr &&
-            centrPic[i].visible)
+            if(centrPic[i].Click() && centrPic[i].visible)
             {
                 vybor = i;
                 mouse_click = false;
