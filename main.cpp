@@ -40,7 +40,7 @@ int main()
             menuPic[i].Draw();
         }
 
-        for(int i=0; i<count_pic; i++)
+        for(int i=0; i<nCentrPic; i++)
         {
             centrPic[i].Draw();
         }
@@ -60,9 +60,9 @@ int main()
             }
         }
 
-        for(int i=0; i<count_pic; i++)
+        for(int npic=0; npic<count_pic; npic++)
         {
-            if(menuPic[i].Click() && menuPic[i].visible)
+            if(menuPic[npic].Click() && menuPic[npic].visible)
             {
                 while(txMouseButtons() == 1)
                 {
@@ -83,13 +83,21 @@ int main()
         }
 
 
-        for(int i=0; i<count_pic; i++)
+        for(int i=0; i<nCentrPic; i++)
         {
             if(centrPic[i].Click() && centrPic[i].visible)
             {
                 vybor = i;
                 mouse_click = false;
             }
+        }
+
+        if(vybor>=0 && GetAsyncKeyState (VK_DELETE))
+        {
+            centrPic[vybor] = centrPic[nCentrPic-1];
+            nCentrPic--;
+            vybor = -1;
+            mouse_click = true;
         }
 
 

@@ -4,8 +4,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 <body>
 <tt>
-Build started on: <u>16-10-2023 at 19:45.26</u><br />
-Build ended on: <u>16-10-2023 at 19:45.42</u><p />
+Build started on: <u>20-10-2023 at 19:42.30</u><br />
+Build ended on: <u>20-10-2023 at 19:42.46</u><p />
 <b>-------------- Build: Debug in clash (compiler: NOT FOR PROJECTS! = MinGW GCC + Strict + Fast + Save (Requires Git))---------------</b><br />
 g++git-auto.bat "D:\пономарёв александр\clashofclans-main\main.cpp" -o bin\Debug\clash.exe -mwindows  -Wall -fexceptions  -g  -Wshadow -Winit-self -Wredundant-decls -Wcast-align -Wundef -Wfloat-equal -Winline -Wunreachable-code -Wmissing-declarations -Wmissing-include-dirs -Wswitch-enum -Wswitch-default -Weffc++ -Wmain -Wextra -Wall -g -pipe -fexceptions -Wcast-qual -Wconversion -Wctor-dtor-privacy -Wempty-body -Wformat-security -Wformat=2 -Wignored-qualifiers -Wlogical-op -Wmissing-field-initializers -Wnon-virtual-dtor -Woverloaded-virtual -Wpointer-arith -Wsign-promo -Wstack-usage=8192 -Wstrict-aliasing -Wstrict-null-sentinel -Wtype-limits -Wwrite-strings -D_DEBUG -D_EJUDGE_CLIENT_SIDE -D_EJC<br />
 ------------------------------------------------------------------------------------------------------<br />
@@ -39,32 +39,41 @@ D:\пономарёв александр\clashofclans-main\main.cpp: In function
 D:\пономарёв александр\clashofclans-main\main.cpp:15:30: note: synthesized method 'Picture::Picture()' first required here <br />
      Picture menuPic[count_pic];<br />
                               ^<br />
-<font color="#0000ff">D:\пономарёв александр\clashofclans-main\main.cpp:125:63: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
+<font color="#0000ff">D:\пономарёв александр\clashofclans-main\main.cpp:63:17: warning: declaration of 'npic' shadows a previous local [-Wshadow]</font><br />
+         for(int npic=0; npic&lt;count_pic; npic++)<br />
+                 ^<br />
+<font color="#0000ff">D:\пономарёв александр\clashofclans-main\main.cpp:24:9: warning: shadowed declaration is here [-Wshadow]</font><br />
+     int npic = 0;<br />
+         ^<br />
+<font color="#0000ff">D:\пономарёв александр\clashofclans-main\main.cpp:133:63: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
                  centrPic[vybor].w_scr = centrPic[vybor].w_scr * 1.1;<br />
                                                                ^<br />
-<font color="#0000ff">D:\пономарёв александр\clashofclans-main\main.cpp:126:63: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
+<font color="#0000ff">D:\пономарёв александр\clashofclans-main\main.cpp:134:63: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
                  centrPic[vybor].h_scr = centrPic[vybor].h_scr * 1.1;<br />
                                                                ^<br />
-<font color="#0000ff">D:\пономарёв александр\clashofclans-main\main.cpp:131:63: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
+<font color="#0000ff">D:\пономарёв александр\clashofclans-main\main.cpp:139:63: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
                  centrPic[vybor].w_scr = centrPic[vybor].w_scr * 0.9;<br />
                                                                ^<br />
-<font color="#0000ff">D:\пономарёв александр\clashofclans-main\main.cpp:132:63: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
+<font color="#0000ff">D:\пономарёв александр\clashofclans-main\main.cpp:140:63: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
                  centrPic[vybor].h_scr = centrPic[vybor].h_scr * 0.9;<br />
                                                                ^<br />
-<font color="#0000ff">D:\пономарёв александр\clashofclans-main\main.cpp:140:48: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
+<font color="#0000ff">D:\пономарёв александр\clashofclans-main\main.cpp:148:48: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
                  centrPic[vybor].x = txMouseX() - centrPic[vybor].w_scr/2;<br />
                                                 ^<br />
-<font color="#0000ff">D:\пономарёв александр\clashofclans-main\main.cpp:141:48: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
+<font color="#0000ff">D:\пономарёв александр\clashofclans-main\main.cpp:149:48: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
                  centrPic[vybor].y = txMouseY() - centrPic[vybor].h_scr/2;<br />
                                                 ^<br />
-<font color="#0000ff">D:\пономарёв александр\clashofclans-main\main.cpp:168:1: warning: stack usage might be unbounded [-Wstack-usage=]</font><br />
+<font color="#0000ff">D:\пономарёв александр\clashofclans-main\main.cpp:24:9: warning: unused variable 'npic' [-Wunused-variable]</font><br />
+     int npic = 0;<br />
+         ^<br />
+<font color="#0000ff">D:\пономарёв александр\clashofclans-main\main.cpp:176:1: warning: stack usage might be unbounded [-Wstack-usage=]</font><br />
  }<br />
  ^<br />
 ------------------------------------------------------------------------------------------------------<br />
 Autosaving to the Git repository in D:/ /clashofclans-main/.git-auto/... <br />
 Output size is 2,26 MB<br />
 <font color="#0000ff">Process terminated with status 0 (0 minutes, 15 seconds)</font><br />
-<font color="#0000ff">0 errors, 19 warnings (0 minutes, 15 seconds)</font><br />
+<font color="#0000ff">0 errors, 22 warnings (0 minutes, 15 seconds)</font><br />
 </tt>
 </body>
 </html>
