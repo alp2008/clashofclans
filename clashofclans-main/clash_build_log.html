@@ -1,0 +1,181 @@
+<html>
+<head>
+<title>clash build log</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+<body>
+<tt>
+Build started on: <u>27-10-2023 at 19:53.41</u><br />
+Build ended on: <u>27-10-2023 at 19:53.45</u><p />
+<b>-------------- Build: Debug in clash (compiler: NOT FOR PROJECTS! = MinGW GCC + Strict + Fast + Save (Requires Git))---------------</b><br />
+g++git-auto.bat "D:\проекты и другое\clashofclans-main\main.cpp" -o bin\Debug\clash.exe -mwindows  -Wall -fexceptions  -g  -Wshadow -Winit-self -Wredundant-decls -Wcast-align -Wundef -Wfloat-equal -Winline -Wunreachable-code -Wmissing-declarations -Wmissing-include-dirs -Wswitch-enum -Wswitch-default -Weffc++ -Wmain -Wextra -Wall -g -pipe -fexceptions -Wcast-qual -Wconversion -Wctor-dtor-privacy -Wempty-body -Wformat-security -Wformat=2 -Wignored-qualifiers -Wlogical-op -Wmissing-field-initializers -Wnon-virtual-dtor -Woverloaded-virtual -Wpointer-arith -Wsign-promo -Wstack-usage=8192 -Wstrict-aliasing -Wstrict-null-sentinel -Wtype-limits -Wwrite-strings -D_DEBUG -D_EJUDGE_CLIENT_SIDE -D_EJC<br />
+------------------------------------------------------------------------------------------------------<br />
+Compilation ERRORS:<br />
+<br />
+In file included from D:\проекты и другое\clashofclans-main\main.cpp:2:0:<br />
+D:\проекты и другое\clashofclans-main\button.cpp: In constructor 'Button::Button()':<br />
+<font color="#0000ff">D:\проекты и другое\clashofclans-main\button.cpp:2:8: warning: 'Button::x' should be initialized in the member initialization list [-Weffc++]</font><br />
+ struct Button<br />
+        ^<br />
+<font color="#0000ff">D:\проекты и другое\clashofclans-main\button.cpp:2:8: warning: 'Button::name' should be initialized in the member initialization list [-Weffc++]</font><br />
+<font color="#0000ff">D:\проекты и другое\clashofclans-main\button.cpp:2:8: warning: 'Button::category' should be initialized in the member initialization list [-Weffc++]</font><br />
+D:\проекты и другое\clashofclans-main\main.cpp: In function 'int main()':<br />
+D:\проекты и другое\clashofclans-main\main.cpp:11:25: note: synthesized method 'Button::Button()' first required here <br />
+     Button btn[count_btn];<br />
+                         ^<br />
+In file included from D:\проекты и другое\clashofclans-main\main.cpp:3:0:<br />
+D:\проекты и другое\clashofclans-main\picture.cpp: In constructor 'Picture::Picture()':<br />
+<font color="#0000ff">D:\проекты и другое\clashofclans-main\picture.cpp:2:8: warning: 'Picture::x' should be initialized in the member initialization list [-Weffc++]</font><br />
+ struct Picture<br />
+        ^<br />
+<font color="#0000ff">D:\проекты и другое\clashofclans-main\picture.cpp:2:8: warning: 'Picture::y' should be initialized in the member initialization list [-Weffc++]</font><br />
+<font color="#0000ff">D:\проекты и другое\clashofclans-main\picture.cpp:2:8: warning: 'Picture::pic' should be initialized in the member initialization list [-Weffc++]</font><br />
+<font color="#0000ff">D:\проекты и другое\clashofclans-main\picture.cpp:2:8: warning: 'Picture::adress' should be initialized in the member initialization list [-Weffc++]</font><br />
+<font color="#0000ff">D:\проекты и другое\clashofclans-main\picture.cpp:2:8: warning: 'Picture::w_scr' should be initialized in the member initialization list [-Weffc++]</font><br />
+<font color="#0000ff">D:\проекты и другое\clashofclans-main\picture.cpp:2:8: warning: 'Picture::h_scr' should be initialized in the member initialization list [-Weffc++]</font><br />
+<font color="#0000ff">D:\проекты и другое\clashofclans-main\picture.cpp:2:8: warning: 'Picture::w' should be initialized in the member initialization list [-Weffc++]</font><br />
+<font color="#0000ff">D:\проекты и другое\clashofclans-main\picture.cpp:2:8: warning: 'Picture::h' should be initialized in the member initialization list [-Weffc++]</font><br />
+<font color="#0000ff">D:\проекты и другое\clashofclans-main\picture.cpp:2:8: warning: 'Picture::visible' should be initialized in the member initialization list [-Weffc++]</font><br />
+<font color="#0000ff">D:\проекты и другое\clashofclans-main\picture.cpp:2:8: warning: 'Picture::category' should be initialized in the member initialization list [-Weffc++]</font><br />
+D:\проекты и другое\clashofclans-main\main.cpp: In function 'int main()':<br />
+D:\проекты и другое\clashofclans-main\main.cpp:16:30: note: synthesized method 'Picture::Picture()' first required here <br />
+     Picture menuPic[count_pic];<br />
+                              ^<br />
+<font color="#ff0000">D:\проекты и другое\clashofclans-main\main.cpp:17:16: error: no match for 'operator=' (operand types are 'Picture' and '&lt;brace-enclosed initializer list&gt;')</font><br />
+     menuPic[0] = {20, 100, "pictures/build/ratusha.bmp", txLoadImage ("pictures/build/ratusha.bmp"), 120, 120, 225, 225, false};<br />
+                ^<br />
+D:\проекты и другое\clashofclans-main\main.cpp:17:16: note: candidates are:<br />
+In file included from D:\проекты и другое\clashofclans-main\main.cpp:3:0:<br />
+D:\проекты и другое\clashofclans-main\picture.cpp:2:8: note: Picture&amp; Picture::operator=(const Picture&amp;)<br />
+ struct Picture<br />
+        ^<br />
+D:\проекты и другое\clashofclans-main\picture.cpp:2:8: note:   no known conversion for argument 1 from '&lt;brace-enclosed initializer list&gt;' to 'const Picture&amp;'<br />
+D:\проекты и другое\clashofclans-main\picture.cpp:2:8: note: Picture&amp; Picture::operator=(Picture&amp;&amp;)<br />
+D:\проекты и другое\clashofclans-main\picture.cpp:2:8: note:   no known conversion for argument 1 from '&lt;brace-enclosed initializer list&gt;' to 'Picture&amp;&amp;'<br />
+<font color="#ff0000">D:\проекты и другое\clashofclans-main\main.cpp:18:16: error: no match for 'operator=' (operand types are 'Picture' and '&lt;brace-enclosed initializer list&gt;')</font><br />
+     menuPic[1] = {20, 300, "pictures/build/bilder.bmp", txLoadImage ("pictures/build/bilder.bmp"),  54,  63,  54,  63,  false};<br />
+                ^<br />
+D:\проекты и другое\clashofclans-main\main.cpp:18:16: note: candidates are:<br />
+In file included from D:\проекты и другое\clashofclans-main\main.cpp:3:0:<br />
+D:\проекты и другое\clashofclans-main\picture.cpp:2:8: note: Picture&amp; Picture::operator=(const Picture&amp;)<br />
+ struct Picture<br />
+        ^<br />
+D:\проекты и другое\clashofclans-main\picture.cpp:2:8: note:   no known conversion for argument 1 from '&lt;brace-enclosed initializer list&gt;' to 'const Picture&amp;'<br />
+D:\проекты и другое\clashofclans-main\picture.cpp:2:8: note: Picture&amp; Picture::operator=(Picture&amp;&amp;)<br />
+D:\проекты и другое\clashofclans-main\picture.cpp:2:8: note:   no known conversion for argument 1 from '&lt;brace-enclosed initializer list&gt;' to 'Picture&amp;&amp;'<br />
+<font color="#ff0000">D:\проекты и другое\clashofclans-main\main.cpp:19:16: error: no match for 'operator=' (operand types are 'Picture' and '&lt;brace-enclosed initializer list&gt;')</font><br />
+     menuPic[2] = {20, 100, "pictures/defense/zabor.bmp", txLoadImage ("pictures/defense/zabor.bmp"), 120, 120, 238, 212, false};<br />
+                ^<br />
+D:\проекты и другое\clashofclans-main\main.cpp:19:16: note: candidates are:<br />
+In file included from D:\проекты и другое\clashofclans-main\main.cpp:3:0:<br />
+D:\проекты и другое\clashofclans-main\picture.cpp:2:8: note: Picture&amp; Picture::operator=(const Picture&amp;)<br />
+ struct Picture<br />
+        ^<br />
+D:\проекты и другое\clashofclans-main\picture.cpp:2:8: note:   no known conversion for argument 1 from '&lt;brace-enclosed initializer list&gt;' to 'const Picture&amp;'<br />
+D:\проекты и другое\clashofclans-main\picture.cpp:2:8: note: Picture&amp; Picture::operator=(Picture&amp;&amp;)<br />
+D:\проекты и другое\clashofclans-main\picture.cpp:2:8: note:   no known conversion for argument 1 from '&lt;brace-enclosed initializer list&gt;' to 'Picture&amp;&amp;'<br />
+<font color="#ff0000">D:\проекты и другое\clashofclans-main\main.cpp:20:16: error: no match for 'operator=' (operand types are 'Picture' and '&lt;brace-enclosed initializer list&gt;')</font><br />
+     menuPic[3] = {20, 300, "pictures/defense/ad.bmp", txLoadImage ("pictures/defense/ad.bmp"),    120, 120, 155, 215, false};<br />
+                ^<br />
+D:\проекты и другое\clashofclans-main\main.cpp:20:16: note: candidates are:<br />
+In file included from D:\проекты и другое\clashofclans-main\main.cpp:3:0:<br />
+D:\проекты и другое\clashofclans-main\picture.cpp:2:8: note: Picture&amp; Picture::operator=(const Picture&amp;)<br />
+ struct Picture<br />
+        ^<br />
+D:\проекты и другое\clashofclans-main\picture.cpp:2:8: note:   no known conversion for argument 1 from '&lt;brace-enclosed initializer list&gt;' to 'const Picture&amp;'<br />
+D:\проекты и другое\clashofclans-main\picture.cpp:2:8: note: Picture&amp; Picture::operator=(Picture&amp;&amp;)<br />
+D:\проекты и другое\clashofclans-main\picture.cpp:2:8: note:   no known conversion for argument 1 from '&lt;brace-enclosed initializer list&gt;' to 'Picture&amp;&amp;'<br />
+<font color="#ff0000">D:\проекты и другое\clashofclans-main\main.cpp:21:16: error: no match for 'operator=' (operand types are 'Picture' and '&lt;brace-enclosed initializer list&gt;')</font><br />
+     menuPic[4] = {20, 500, "pictures/defense/dolbit.bmp", txLoadImage ("pictures/defense/dolbit.bmp"),120, 120, 159, 190, false};<br />
+                ^<br />
+D:\проекты и другое\clashofclans-main\main.cpp:21:16: note: candidates are:<br />
+In file included from D:\проекты и другое\clashofclans-main\main.cpp:3:0:<br />
+D:\проекты и другое\clashofclans-main\picture.cpp:2:8: note: Picture&amp; Picture::operator=(const Picture&amp;)<br />
+ struct Picture<br />
+        ^<br />
+D:\проекты и другое\clashofclans-main\picture.cpp:2:8: note:   no known conversion for argument 1 from '&lt;brace-enclosed initializer list&gt;' to 'const Picture&amp;'<br />
+D:\проекты и другое\clashofclans-main\picture.cpp:2:8: note: Picture&amp; Picture::operator=(Picture&amp;&amp;)<br />
+D:\проекты и другое\clashofclans-main\picture.cpp:2:8: note:   no known conversion for argument 1 from '&lt;brace-enclosed initializer list&gt;' to 'Picture&amp;&amp;'<br />
+<font color="#ff0000">D:\проекты и другое\clashofclans-main\main.cpp:22:16: error: no match for 'operator=' (operand types are 'Picture' and '&lt;brace-enclosed initializer list&gt;')</font><br />
+     menuPic[5] = {120,100, "pictures/defense/gun2.bmp", txLoadImage ("pictures/defense/gun2.bmp"),  120, 120, 82,  78,  false};<br />
+                ^<br />
+D:\проекты и другое\clashofclans-main\main.cpp:22:16: note: candidates are:<br />
+In file included from D:\проекты и другое\clashofclans-main\main.cpp:3:0:<br />
+D:\проекты и другое\clashofclans-main\picture.cpp:2:8: note: Picture&amp; Picture::operator=(const Picture&amp;)<br />
+ struct Picture<br />
+        ^<br />
+D:\проекты и другое\clashofclans-main\picture.cpp:2:8: note:   no known conversion for argument 1 from '&lt;brace-enclosed initializer list&gt;' to 'const Picture&amp;'<br />
+D:\проекты и другое\clashofclans-main\picture.cpp:2:8: note: Picture&amp; Picture::operator=(Picture&amp;&amp;)<br />
+D:\проекты и другое\clashofclans-main\picture.cpp:2:8: note:   no known conversion for argument 1 from '&lt;brace-enclosed initializer list&gt;' to 'Picture&amp;&amp;'<br />
+<font color="#ff0000">D:\проекты и другое\clashofclans-main\main.cpp:23:16: error: no match for 'operator=' (operand types are 'Picture' and '&lt;brace-enclosed initializer list&gt;')</font><br />
+     menuPic[6] = {120,300, "pictures/defense/negr.bmp", txLoadImage ("pictures/defense/negr.bmp"),  120, 120, 760, 760, false};<br />
+                ^<br />
+D:\проекты и другое\clashofclans-main\main.cpp:23:16: note: candidates are:<br />
+In file included from D:\проекты и другое\clashofclans-main\main.cpp:3:0:<br />
+D:\проекты и другое\clashofclans-main\picture.cpp:2:8: note: Picture&amp; Picture::operator=(const Picture&amp;)<br />
+ struct Picture<br />
+        ^<br />
+D:\проекты и другое\clashofclans-main\picture.cpp:2:8: note:   no known conversion for argument 1 from '&lt;brace-enclosed initializer list&gt;' to 'const Picture&amp;'<br />
+D:\проекты и другое\clashofclans-main\picture.cpp:2:8: note: Picture&amp; Picture::operator=(Picture&amp;&amp;)<br />
+D:\проекты и другое\clashofclans-main\picture.cpp:2:8: note:   no known conversion for argument 1 from '&lt;brace-enclosed initializer list&gt;' to 'Picture&amp;&amp;'<br />
+<font color="#ff0000">D:\проекты и другое\clashofclans-main\main.cpp:24:16: error: no match for 'operator=' (operand types are 'Picture' and '&lt;brace-enclosed initializer list&gt;')</font><br />
+     menuPic[7] = {120,500, "pictures/defense/tesla.bmp", txLoadImage ("pictures/defense/tesla.bmp"), 120, 120, 170, 192, false};<br />
+                ^<br />
+D:\проекты и другое\clashofclans-main\main.cpp:24:16: note: candidates are:<br />
+In file included from D:\проекты и другое\clashofclans-main\main.cpp:3:0:<br />
+D:\проекты и другое\clashofclans-main\picture.cpp:2:8: note: Picture&amp; Picture::operator=(const Picture&amp;)<br />
+ struct Picture<br />
+        ^<br />
+D:\проекты и другое\clashofclans-main\picture.cpp:2:8: note:   no known conversion for argument 1 from '&lt;brace-enclosed initializer list&gt;' to 'const Picture&amp;'<br />
+D:\проекты и другое\clashofclans-main\picture.cpp:2:8: note: Picture&amp; Picture::operator=(Picture&amp;&amp;)<br />
+D:\проекты и другое\clashofclans-main\picture.cpp:2:8: note:   no known conversion for argument 1 from '&lt;brace-enclosed initializer list&gt;' to 'Picture&amp;&amp;'<br />
+<font color="#ff0000">D:\проекты и другое\clashofclans-main\main.cpp:28:9: error: 'menupic' was not declared in this scope</font><br />
+         menupic[i].visible = false;<br />
+         ^<br />
+<font color="#0000ff">D:\проекты и другое\clashofclans-main\main.cpp:80:17: warning: declaration of 'npic' shadows a previous local [-Wshadow]</font><br />
+         for(int npic=0; npic&lt;count_pic; npic++)<br />
+                 ^<br />
+<font color="#0000ff">D:\проекты и другое\clashofclans-main\main.cpp:41:9: warning: shadowed declaration is here [-Wshadow]</font><br />
+     int npic = 0;<br />
+         ^<br />
+<font color="#ff0000">D:\проекты и другое\clashofclans-main\main.cpp:90:59: error: request for member 'adress' in 'menuPic[npic].Picture::pic', which is of pointer type 'HDC' (maybe you meant to use '-&gt;' ?)</font><br />
+                                         menuPic[npic].pic.adress,<br />
+                                                           ^<br />
+<font color="#ff0000">D:\проекты и другое\clashofclans-main\main.cpp:88:38: error: no match for 'operator=' (operand types are 'Picture' and '&lt;brace-enclosed initializer list&gt;')</font><br />
+                 centrPic[nCentrPic]  = {500,<br />
+                                      ^<br />
+D:\проекты и другое\clashofclans-main\main.cpp:88:38: note: candidates are:<br />
+In file included from D:\проекты и другое\clashofclans-main\main.cpp:3:0:<br />
+D:\проекты и другое\clashofclans-main\picture.cpp:2:8: note: Picture&amp; Picture::operator=(const Picture&amp;)<br />
+ struct Picture<br />
+        ^<br />
+D:\проекты и другое\clashofclans-main\picture.cpp:2:8: note:   no known conversion for argument 1 from '&lt;brace-enclosed initializer list&gt;' to 'const Picture&amp;'<br />
+D:\проекты и другое\clashofclans-main\picture.cpp:2:8: note: Picture&amp; Picture::operator=(Picture&amp;&amp;)<br />
+D:\проекты и другое\clashofclans-main\picture.cpp:2:8: note:   no known conversion for argument 1 from '&lt;brace-enclosed initializer list&gt;' to 'Picture&amp;&amp;'<br />
+<font color="#0000ff">D:\проекты и другое\clashofclans-main\main.cpp:151:63: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
+                 centrPic[vybor].w_scr = centrPic[vybor].w_scr * 1.1;<br />
+                                                               ^<br />
+<font color="#0000ff">D:\проекты и другое\clashofclans-main\main.cpp:152:63: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
+                 centrPic[vybor].h_scr = centrPic[vybor].h_scr * 1.1;<br />
+                                                               ^<br />
+<font color="#0000ff">D:\проекты и другое\clashofclans-main\main.cpp:157:63: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
+                 centrPic[vybor].w_scr = centrPic[vybor].w_scr * 0.9;<br />
+                                                               ^<br />
+<font color="#0000ff">D:\проекты и другое\clashofclans-main\main.cpp:158:63: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
+                 centrPic[vybor].h_scr = centrPic[vybor].h_scr * 0.9;<br />
+                                                               ^<br />
+<font color="#0000ff">D:\проекты и другое\clashofclans-main\main.cpp:166:48: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
+                 centrPic[vybor].x = txMouseX() - centrPic[vybor].w_scr/2;<br />
+                                                ^<br />
+<font color="#0000ff">D:\проекты и другое\clashofclans-main\main.cpp:167:48: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
+                 centrPic[vybor].y = txMouseY() - centrPic[vybor].h_scr/2;<br />
+                                                ^<br />
+<font color="#0000ff">D:\проекты и другое\clashofclans-main\main.cpp:41:9: warning: unused variable 'npic' [-Wunused-variable]</font><br />
+     int npic = 0;<br />
+         ^<br />
+------------------------------------------------------------------------------------------------------<br />
+Autosaving to the Git repository in D:/  /clashofclans-main/.git-auto/... <br />
+<font color="#a00000">Process terminated with status 1 (0 minutes, 4 seconds)</font><br />
+<font color="#a00000">11 errors, 22 warnings (0 minutes, 4 seconds)</font><br />
+</tt>
+</body>
+</html>
